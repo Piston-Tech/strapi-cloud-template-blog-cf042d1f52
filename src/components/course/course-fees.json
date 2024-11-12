@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_course_course_fees",
+  "info": {
+    "displayName": "Course Fees",
+    "icon": "database"
+  },
+  "options": {},
+  "attributes": {
+    "Description": {
+      "type": "text",
+      "required": false
+    },
+    "Plans": {
+      "type": "component",
+      "repeatable": true,
+      "component": "course.fee"
+    }
+  }
+}

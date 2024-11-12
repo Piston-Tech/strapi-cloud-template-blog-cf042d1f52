@@ -1,0 +1,30 @@
+{
+  "collectionName": "components_elements_videos",
+  "info": {
+    "displayName": "Video",
+    "icon": "play",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "URL": {
+      "type": "string",
+      "unique": false,
+      "required": true,
+      "regex": "(https?:\\/\\/)?(www.)?(youtube\\.com|youtu\\.be|youtube-nocookie\\.com)\\/(?:embed\\/|v\\/|watch\\?v=|watch\\?list=(.*)&v=)?((\\w|-){11})(&list=(\\w+)&?)?",
+      "default": "https://youtu.be/guCqg4NqUVw"
+    },
+    "Preview": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "Title": {
+      "type": "string",
+      "required": false
+    }
+  }
+}

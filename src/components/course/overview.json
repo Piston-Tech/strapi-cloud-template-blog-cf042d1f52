@@ -1,0 +1,25 @@
+{
+  "collectionName": "components_course_overviews",
+  "info": {
+    "displayName": "Overview",
+    "icon": "layer"
+  },
+  "options": {},
+  "attributes": {
+    "Overview": {
+      "type": "blocks",
+      "required": true
+    },
+    "Learning_Outcomes": {
+      "type": "blocks",
+      "required": true
+    },
+    "Curriculumn": {
+      "displayName": "Module",
+      "type": "component",
+      "repeatable": true,
+      "component": "course.module",
+      "required": true
+    }
+  }
+}

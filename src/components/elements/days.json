@@ -1,0 +1,45 @@
+{
+  "collectionName": "components_elements_days",
+  "info": {
+    "displayName": "Days",
+    "icon": "sun"
+  },
+  "options": {},
+  "attributes": {
+    "Sunday": {
+      "type": "boolean",
+      "default": false,
+      "required": true
+    },
+    "Monday": {
+      "type": "boolean",
+      "default": false,
+      "required": true
+    },
+    "Tuesday": {
+      "type": "boolean",
+      "default": false,
+      "required": true
+    },
+    "Wednesday": {
+      "type": "boolean",
+      "default": false,
+      "required": true
+    },
+    "Thursday": {
+      "type": "boolean",
+      "default": false,
+      "required": true
+    },
+    "Friday": {
+      "type": "boolean",
+      "default": false,
+      "required": true
+    },
+    "Saturday": {
+      "type": "boolean",
+      "default": false,
+      "required": true
+    }
+  }
+}

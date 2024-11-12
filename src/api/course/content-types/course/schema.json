@@ -1,0 +1,104 @@
+{
+  "kind": "collectionType",
+  "collectionName": "courses",
+  "info": {
+    "singularName": "course",
+    "pluralName": "courses",
+    "displayName": "Course",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Name": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "Slug": {
+      "type": "uid",
+      "targetField": "Name",
+      "required": true
+    },
+    "Description": {
+      "type": "text",
+      "required": false,
+      "maxLength": 100
+    },
+    "Video": {
+      "type": "component",
+      "repeatable": false,
+      "component": "elements.video",
+      "required": true
+    },
+    "Enrolled": {
+      "type": "integer",
+      "required": false,
+      "default": 0
+    },
+    "SEO": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.seo",
+      "required": false
+    },
+    "Overview": {
+      "displayName": "Overview",
+      "type": "component",
+      "repeatable": false,
+      "component": "course.overview"
+    },
+    "Who_Should_Attend": {
+      "displayName": "Who Should Attend",
+      "type": "component",
+      "repeatable": false,
+      "component": "course.who-should-attend"
+    },
+    "Facilitators": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::facilitator.facilitator"
+    },
+    "Testimonials": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::testimonial.testimonial",
+      "mappedBy": "course"
+    },
+    "Experience": {
+      "displayName": "Experience",
+      "type": "component",
+      "repeatable": false,
+      "component": "course.experience"
+    },
+    "Schedule": {
+      "displayName": "Course Schedule",
+      "type": "component",
+      "repeatable": false,
+      "component": "course.course-schedule",
+      "required": true
+    },
+    "Fees": {
+      "displayName": "Course Fees",
+      "type": "component",
+      "repeatable": false,
+      "component": "course.course-fees",
+      "required": true
+    },
+    "Apply": {
+      "displayName": "Apply Now",
+      "type": "component",
+      "repeatable": false,
+      "component": "course.apply-now",
+      "required": true
+    },
+    "faqs": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::faq.faq",
+      "inversedBy": "courses"
+    }
+  }
+}

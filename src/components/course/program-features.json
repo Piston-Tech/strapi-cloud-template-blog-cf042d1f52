@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_course_program_features",
+  "info": {
+    "displayName": "Program Features",
+    "icon": "gift"
+  },
+  "options": {},
+  "attributes": {
+    "Title": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "Description": {
+      "type": "text",
+      "required": true,
+      "unique": true,
+      "maxLength": 300
+    }
+  }
+}

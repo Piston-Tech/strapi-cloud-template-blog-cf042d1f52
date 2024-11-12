@@ -1,0 +1,46 @@
+{
+  "collectionName": "components_course_schedules",
+  "info": {
+    "displayName": "Schedule",
+    "icon": "calendar",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "Title": {
+      "type": "string",
+      "required": true,
+      "default": "Weekdays",
+      "unique": true
+    },
+    "Starts": {
+      "type": "date",
+      "required": true,
+      "unique": true
+    },
+    "Ends": {
+      "type": "date",
+      "required": true,
+      "unique": true
+    },
+    "Days": {
+      "displayName": "Days",
+      "type": "component",
+      "repeatable": false,
+      "component": "elements.days",
+      "required": true
+    },
+    "From": {
+      "type": "time",
+      "required": true
+    },
+    "Till": {
+      "type": "time",
+      "required": true
+    },
+    "Apply_Before": {
+      "type": "date",
+      "required": true
+    }
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "collectionName": "components_course_who_should_attends",
+  "info": {
+    "displayName": "Who Should Attend",
+    "icon": "connector",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "Description": {
+      "type": "blocks"
+    },
+    "Key_Program_Features": {
+      "displayName": "Program Features",
+      "type": "component",
+      "repeatable": true,
+      "component": "course.program-features",
+      "required": true
+    },
+    "Certification": {
+      "displayName": "Certification",
+      "type": "component",
+      "repeatable": false,
+      "component": "course.certification"
+    }
+  }
+}

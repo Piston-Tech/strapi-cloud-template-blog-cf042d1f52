@@ -1,0 +1,27 @@
+{
+  "collectionName": "components_course_deliveries",
+  "info": {
+    "displayName": "Delivery",
+    "icon": "pinMap",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "Name": {
+      "type": "string",
+      "default": "Classroom",
+      "required": true,
+      "unique": true
+    },
+    "Schedule": {
+      "type": "component",
+      "repeatable": true,
+      "component": "course.schedule",
+      "required": true
+    },
+    "Description": {
+      "type": "text",
+      "required": false
+    }
+  }
+}

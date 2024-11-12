@@ -611,6 +611,122 @@ export interface ApiCategoryCategory extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiCourseCourse extends Struct.CollectionTypeSchema {
+  collectionName: 'courses';
+  info: {
+    singularName: 'course';
+    pluralName: 'courses';
+    displayName: 'Course';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Name: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.Unique;
+    Slug: Schema.Attribute.UID<'Name'> & Schema.Attribute.Required;
+    Description: Schema.Attribute.Text &
+      Schema.Attribute.SetMinMaxLength<{
+        maxLength: 100;
+      }>;
+    Video: Schema.Attribute.Component<'elements.video', false> &
+      Schema.Attribute.Required;
+    Enrolled: Schema.Attribute.Integer & Schema.Attribute.DefaultTo<0>;
+    SEO: Schema.Attribute.Component<'shared.seo', false>;
+    Overview: Schema.Attribute.Component<'course.overview', false>;
+    Who_Should_Attend: Schema.Attribute.Component<
+      'course.who-should-attend',
+      false
+    >;
+    Facilitators: Schema.Attribute.Relation<
+      'manyToMany',
+      'api::facilitator.facilitator'
+    >;
+    testimonials: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::testimonial.testimonial'
+    >;
+    Experience: Schema.Attribute.Component<'course.experience', false>;
+    Schedule: Schema.Attribute.Component<'course.course-schedule', false> &
+      Schema.Attribute.Required;
+    Fees: Schema.Attribute.Component<'course.course-fees', false> &
+      Schema.Attribute.Required;
+    Apply: Schema.Attribute.Component<'course.apply-now', false> &
+      Schema.Attribute.Required;
+    faqs: Schema.Attribute.Relation<'manyToMany', 'api::faq.faq'>;
+    createdAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    publishedAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<'oneToMany', 'api::course.course'>;
+  };
+}
+
+export interface ApiFacilitatorFacilitator extends Struct.CollectionTypeSchema {
+  collectionName: 'facilitators';
+  info: {
+    singularName: 'facilitator';
+    pluralName: 'facilitators';
+    displayName: 'Facilitator';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Name: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.Unique;
+    Description: Schema.Attribute.String & Schema.Attribute.Required;
+    courses: Schema.Attribute.Relation<'manyToMany', 'api::course.course'>;
+    createdAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    publishedAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::facilitator.facilitator'
+    >;
+  };
+}
+
+export interface ApiFaqFaq extends Struct.CollectionTypeSchema {
+  collectionName: 'faqs';
+  info: {
+    singularName: 'faq';
+    pluralName: 'faqs';
+    displayName: 'FAQ';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Question: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.Unique;
+    Answer: Schema.Attribute.Blocks & Schema.Attribute.Required;
+    courses: Schema.Attribute.Relation<'manyToMany', 'api::course.course'>;
+    createdAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    publishedAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<'oneToMany', 'api::faq.faq'>;
+  };
+}
+
 export interface ApiGlobalGlobal extends Struct.SingleTypeSchema {
   collectionName: 'globals';
   info: {
@@ -636,6 +752,41 @@ export interface ApiGlobalGlobal extends Struct.SingleTypeSchema {
       Schema.Attribute.Private;
     locale: Schema.Attribute.String;
     localizations: Schema.Attribute.Relation<'oneToMany', 'api::global.global'>;
+  };
+}
+
+export interface ApiTestimonialTestimonial extends Struct.CollectionTypeSchema {
+  collectionName: 'testimonials';
+  info: {
+    singularName: 'testimonial';
+    pluralName: 'testimonials';
+    displayName: 'Testimonial';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Name: Schema.Attribute.String & Schema.Attribute.Required;
+    Description: Schema.Attribute.String & Schema.Attribute.Required;
+    Testimony: Schema.Attribute.Text &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetMinMaxLength<{
+        maxLength: 500;
+      }>;
+    Photo: Schema.Attribute.Media<'images'>;
+    course: Schema.Attribute.Relation<'manyToOne', 'api::course.course'>;
+    createdAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    publishedAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::testimonial.testimonial'
+    >;
   };
 }
 
@@ -1018,7 +1169,11 @@ declare module '@strapi/strapi' {
       'api::article.article': ApiArticleArticle;
       'api::author.author': ApiAuthorAuthor;
       'api::category.category': ApiCategoryCategory;
+      'api::course.course': ApiCourseCourse;
+      'api::facilitator.facilitator': ApiFacilitatorFacilitator;
+      'api::faq.faq': ApiFaqFaq;
       'api::global.global': ApiGlobalGlobal;
+      'api::testimonial.testimonial': ApiTestimonialTestimonial;
       'admin::permission': AdminPermission;
       'admin::user': AdminUser;
       'admin::role': AdminRole;

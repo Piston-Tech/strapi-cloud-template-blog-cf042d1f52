@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_course_experiences",
+  "info": {
+    "displayName": "Experience",
+    "icon": "handHeart"
+  },
+  "options": {},
+  "attributes": {
+    "Description": {
+      "type": "blocks",
+      "required": true
+    },
+    "Video": {
+      "type": "component",
+      "repeatable": false,
+      "component": "elements.video"
+    }
+  }
+}

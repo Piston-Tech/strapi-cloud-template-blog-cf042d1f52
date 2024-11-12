@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_course_modules",
+  "info": {
+    "displayName": "Module",
+    "icon": "book"
+  },
+  "options": {},
+  "attributes": {
+    "Title": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "Content": {
+      "type": "blocks",
+      "required": true
+    }
+  }
+}

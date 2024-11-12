@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_course_certifications",
+  "info": {
+    "displayName": "Certification",
+    "icon": "file"
+  },
+  "options": {},
+  "attributes": {
+    "Preview": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false,
+      "required": true
+    },
+    "Description": {
+      "type": "blocks",
+      "required": true
+    }
+  }
+}

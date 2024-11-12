@@ -1,0 +1,14 @@
+{
+  "collectionName": "components_course_apply_nows",
+  "info": {
+    "displayName": "Apply Now",
+    "icon": "cursor"
+  },
+  "options": {},
+  "attributes": {
+    "Description": {
+      "type": "text",
+      "maxLength": 500
+    }
+  }
+}

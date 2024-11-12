@@ -1,0 +1,29 @@
+{
+  "kind": "collectionType",
+  "collectionName": "facilitators",
+  "info": {
+    "singularName": "facilitator",
+    "pluralName": "facilitators",
+    "displayName": "Facilitator"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Name": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "Description": {
+      "type": "string",
+      "required": true
+    },
+    "course": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::course.course"
+    }
+  }
+}

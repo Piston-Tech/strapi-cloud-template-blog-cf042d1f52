@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_course_course_schedules",
+  "info": {
+    "displayName": "Course Schedule",
+    "icon": "calendar"
+  },
+  "options": {},
+  "attributes": {
+    "Description": {
+      "type": "text",
+      "required": false,
+      "maxLength": 500
+    },
+    "Deliveries": {
+      "type": "component",
+      "repeatable": true,
+      "component": "course.delivery",
+      "required": true
+    }
+  }
+}
